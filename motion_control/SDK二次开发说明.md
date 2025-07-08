@@ -31,6 +31,7 @@ target_port: 43988
 默认设备仅支持WiFi网络，即`target_ip`为`192.168.234.X`的IP地址，如需要通过网线或其他网段IP通讯，需配合步骤2.4配置`SDK_CLIENT_IP`
 ## 2.4 配置SDK_CLIENT_IP
 如需要使用网线或其他非192.168.234.X网段IP控制设备，需要通过vim命令修改`/opt/app_launch/start_motion_control.sh`文件：
+
 ```bash  {.line-numbers}
 #!/bin/bash
 
