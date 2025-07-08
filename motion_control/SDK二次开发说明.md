@@ -73,6 +73,16 @@ cd /opt/export/mc/bin && taskset -c 7 ./mc_ctrl r
 若恢复正常，可在运控启动脚本中增加休眠，等待网络初始化完成后再启动运控即可，具体操作方法如下：
 按当前文档操作步骤2.4所示，编辑文件`/opt/app_launch/start_motion_control.sh`并在最后一行脚本上方增加`sleep 10`即可。
 此现象仅在设备断电重启后会存在
+
+## 3.2 python程序运行时报ModuleNotFoundError: No module named 'py_whl.mc_sdk_py.mc_sdk_py'
+默认py_whl的目录下面存放的是x86_64的so包，若设备为arm64架构，请将py_whl目录下的so包替换为lib目录下arm64的so包即可。
+
+## 3.3 py_whl打包whl文件
+确保步骤3.2中的so包已替换为对应系统的so包后，在py_whl目录下执行以下命令打包whl文件：
+```python
+python3 setup.py bdist_wheel  --python-tag py310 --plat-name $(uname -s)_$(uname -i)
+```
+打包后在dist目录下生成mc_sdk.whl文件，通过pip安装mc_sdk.whl文件即可。
 # 4. FAQ
 1. 运控中获取设备状态接口支持频率：
 - lowlevel 的500hz, highlevel的50hz。
