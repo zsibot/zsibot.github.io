@@ -8,6 +8,7 @@ SDK程序与狗本体内程序通讯存在特定协议，故不同版本的SDK�
 grep -oP 'motion-control_\K[^_]+' /etc/{jszr_,}release/*[^rootfs]*.yaml
 ```
 根据命令执行后输出的内容编号，按照下表查询对应版本：
+
 | 运控版本编号 | SDK版本 |
 | --- | --- |
 | 0.1.7 | [0.1.5](../files/mc_sdk_release_v0.1.5.zip) |
