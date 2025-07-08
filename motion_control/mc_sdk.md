@@ -1,4 +1,9 @@
 <style>
+.markdown-body table {
+    display: table;
+    width: 100%;
+    overflow: auto;
+}
 .sdk-table {
   width: 100%; /* 表格总宽度 */
   border-collapse: collapse; /* 合并边框 */
