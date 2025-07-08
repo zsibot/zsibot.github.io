@@ -32,7 +32,8 @@ target_port: 43988
 ## 2.4 配置SDK_CLIENT_IP
 如需要使用网线或其他非192.168.234.X网段IP控制设备，需要通过vim命令修改`/opt/app_launch/start_motion_control.sh`文件：
 
-```bash  {.line-numbers}
+```bash {.line-numbers}
+
 #!/bin/bash
 
 echo "start motion control"
