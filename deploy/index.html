@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://zsibot.github.io/sdk-docs/deploy/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Deploy - ZsiBot Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Deploy";
+        var mkdocs_page_input_path = "deploy.md";
+        var mkdocs_page_url = "/sdk-docs/deploy/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ZsiBot Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sdk_download/">Downloads</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Deploy</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1">1. 网络通讯</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-sdk">2. 修改设备内与SDK通讯相关参数</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21">2.1 登录设备</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22">2.2 查看设备版本</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23-sdk">2.3 修改SDK配置文件</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#24-sdk_client_ip">2.4 配置SDK_CLIENT_IP</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-sdkdemo">3. 修改SDKDemo配置</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">4. 本机内控制器与本机运控通信</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">5. 安装运行步骤</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#51-demo">5.1 编译demo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#52-cdemo">5.2 运行c++demo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#53-python-demo">5.3 运行python demo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#54-cmakemc_sdk">5.4 基于cmake使用mc_sdk</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#55-pythonmc_sdk">5.5 基于python使用mc_sdk</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../architecutre/">Architecture</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../api/">Interface</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../changelog/">Change Log</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ZsiBot Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Deploy</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/zsibot/zsibot_sdk/edit/main/docs/deploy.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="../sdk_download/" class="btn btn-neutral float-left" title="Downloads"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+        <a href="../architecutre/" class="btn btn-neutral float-right" title="Architecture">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="how-to-deploy">How to Deploy</h1>
+<p>当前文档适用于SDK版本v0.2.6以上，运控版本v0.2.6以上（狗本体0.2.0以上）</p>
+<p><strong>环境依赖</strong></p>
+<ul>
+<li>Ubuntu 22.04</li>
+<li>CMake 3.8+</li>
+<li>GCC 11+</li>
+<li>Eigen3</li>
+<li>boost</li>
+<li>python3</li>
+</ul>
+<h2 id="1">1. 网络通讯</h2>
+<p>设备上配备无线网络与有线网络接口，其中无线网络信息位于设备右侧标签，标签内标注有设备SSID与密码信息。</p>
+<p><img alt="图片" src="../images/ZSL-1%20connection.png" /></p>
+<p>机器人默认ip:</p>
+<table>
+<thead>
+<tr>
+<th>网络接口</th>
+<th>IP地址</th>
+<th>DHCP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无线网络</td>
+<td>192.168.234.1</td>
+<td>有</td>
+</tr>
+<tr>
+<td>有线网络</td>
+<td>192.168.168.168</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>无线网络配备DHCP服务，连接上无线网络后，确保操作设备无线网络未配置固定IP，可以直接通过192.168.234.1与狗建立通讯。</p>
+<p>有线网络不配备DHCP服务，通过有线连接后，需要再操作设备有线网络配置固定IP，且IP为168网段，即可与狗建立通讯。</p>
+<p>机器人ip如有变更，需参照配置<code>export SDK_CLIENT_IP="机器人新ip"</code></p>
+<hr />
+<h2 id="2-sdk">2. 修改设备内与SDK通讯相关参数</h2>
+<h3 id="21">2.1 登录设备</h3>
+<p>设备提供ssh登录，通过WiFi或无线与设备创建连接后，可通过命令：</p>
+<pre><code class="language-bash">ssh firefly@{IP}    #密码：firefly
+</code></pre>
+<p>根据有线/无线修改对应的<code>{IP}</code>，密码与用户名同样为firefly。</p>
+<h3 id="22">2.2 查看设备版本</h3>
+<p>登录设备后，执行以下命令查看当前设备版本：</p>
+<pre><code class="language-bash">grep -oP 'motion-control_\K[^_]+' /etc/{jszr_,}release/*[^rootfs]*.yaml
+</code></pre>
+<p>将命令执行后的输出内容复制发送给对应技术支持人员(FAE)，FAE会提供对应版本的SDK程序。</p>
+<h3 id="23-sdk">2.3 修改SDK配置文件</h3>
+<p>通过vim命令修改<code>/opt/export/config/sdk_config.yaml</code>文件：</p>
+<pre><code class="language-yaml">target_ip: &quot;127.0.0.1&quot;
+target_port: 43988
+</code></pre>
+<p>将<code>target_ip</code>修改为控制端设备连接狗之后的IP地址，<code>target_port</code>如无必要可不修改。
+默认设备仅支持WiFi网络，即<code>target_ip</code>为<code>192.168.234.X</code>的IP地址，如需要通过网线或其他网段IP通讯，需配合步骤2.4配置<code>SDK_CLIENT_IP</code></p>
+<h3 id="24-sdk_client_ip">2.4 配置SDK_CLIENT_IP</h3>
+<p>如需要使用网线或其他非192.168.234.X网段IP控制设备，需要通过vim命令修改<code>/opt/app_launch/start_motion_control.sh</code>文件：</p>
+<pre><code class="language-bash">
+#!/bin/bash
+
+echo &quot;start motion control&quot;
+
+# 共享内存文件路径
+SHM_FILE=&quot;/dev/shm/spline_shm&quot;
+
+# 循环检查设备是否存在
+while true; do
+    if [ -e &quot;$SHM_FILE&quot; ]; then
+        echo &quot;共享内存文件 $SHM_FILE 已存在。&quot;
+        break
+    else
+        echo &quot;共享内存文件 $SHM_FILE 不存在，等待 1 秒后重试...&quot;
+        sleep 1
+    fi
+done
+
+# 共享内存文件存在后执行的命令
+echo &quot;共享内存文件已准备好，可以执行后续操作。&quot;
+
+sudo ifconfig lo multicast
+sudo route add -net 224.0.0.0 netmask 240.0.0.0 dev lo
+
+export LD_LIBRARY_PATH=/opt/export/mc/bin
+export ROBOT_TYPE=P2
+# export SDK_CLIENT_IP=&quot;机器人新ip&quot;
+
+cd /opt/export/mc/bin &amp;&amp; taskset -c 7 ./mc_ctrl r
+</code></pre>
+<p>在上面代码27行，增加对应配置:<code>export SDK_CLIENT_IP="机器人新ip"</code>，并将机器人的IP地址填写在对应参数内，如使用有线网络，则将机器人新IP修改为192.168.168.168,如果是其他IP则修改到对应IP即可。</p>
+<hr />
+<h2 id="3-sdkdemo">3. 修改SDKDemo配置</h2>
+<p><strong>配置本地 IP 和端口</strong></p>
+<p>在代码中修改 CLIENT_IP 和 CLIENT_PORT：</p>
+<p>示例：</p>
+<pre><code class="language-C++">constexpr int CLIENT_PORT = 43988;      // 本地端口  
+std::string CLIENT_IP = &quot;192.168.234.15&quot;; // 本地 IP 地址
+// 机器人ip默认192.168.234.1，如果需要更改机器人IP可通过init_robot()接口传入更改后的机器人ip
+</code></pre>
+<p><strong>配置机器人端 IP 和端口</strong>
+<code>当前步骤与2.3一致,若已在2.3中配置过，则无需重复配置</code></p>
+<pre><code class="language-Shell">ssh firefly@192.168.234.1 # 密码 firefly
+</code></pre>
+<p>编辑配置文件： 📌 路径： <code>/opt/export/config/sdk_config.yaml</code></p>
+<p>配置示例</p>
+<pre><code class="language-YAML">target_ip: &quot;192.168.234.15&quot;
+target_port: 43988
+</code></pre>
+<p>⚠️ 请确保机器人 IP 和端口号匹配，否则无法建立通信。</p>
+<p>⚠️ 如果删除或注释掉sdk_config.yaml中ip会导致机器的运控服务无法自起。</p>
+<p>⚠️ 当设备程序进行更新，或运控程序进行更新后，配置文件会被重置，需要重新配置！</p>
+<h2 id="4">4. 本机内控制器与本机运控通信</h2>
+<p><strong>配置本地 IP 和端口</strong></p>
+<p>在代码中修改 CLIENT_IP 和 CLIENT_PORT：</p>
+<p>示例：</p>
+<pre><code class="language-C++">constexpr int CLIENT_PORT = 43988;      // 本地端口  
+std::string CLIENT_IP = &quot;192.168.234.1&quot;; // 机器狗 IP 地址
+</code></pre>
+<p><strong>配置机器人端 IP 和端口</strong></p>
+<pre><code class="language-Shell">ssh firefly@192.168.234.1 # 密码 firefly
+</code></pre>
+<p><strong>编辑配置文件：</strong></p>
+<p>📌 路径： <code>/opt/export/config/sdk_config.yaml</code></p>
+<p>配置示例：</p>
+<pre><code class="language-YAML">target_ip: &quot;192.168.234.1&quot;
+target_port: 43988
+</code></pre>
+<p>⚠️ 请确保机器人 IP 和端口号匹配，否则无法建立通信。</p>
+<p>⚠️ 如果删除或注释掉sdk_config.yaml中ip会导致机器的运控服务无法自起。</p>
+<p>⚠️ 当设备程序进行更新，或运控程序进行更新后，配置文件会被重置，需要重新配置！</p>
+<h2 id="5">5. 安装运行步骤</h2>
+<h3 id="51-demo">5.1 编译demo</h3>
+<pre><code class="language-Shell">cd zsibot_sdk/demo/zsl-1/cpp
+mkdir build
+cd build
+cmake ..
+make -j6
+</code></pre>
+<h3 id="52-cdemo">5.2 运行c++demo</h3>
+<pre><code class="language-Shell">cd zsibot_sdk/demo/zsl-1/cpp/build
+./highlevel_demo
+or
+./lowlevel_demo
+</code></pre>
+<h3 id="53-python-demo">5.3 运行python demo</h3>
+<pre><code class="language-Shell">cd zsibot_sdk/demo/zsl-1/python/examples
+python highlevel_demo.py
+or
+python lowlevel_demo.py
+</code></pre>
+<h3 id="54-cmakemc_sdk">5.4 基于cmake使用mc_sdk</h3>
+<pre><code class="language-cmake">cmake_minimum_required(VERSION 3.16)
+
+project(test)
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 17)
+
+# 定义架构变量（默认未知）
+set(ARCH &quot;unknown&quot;)
+
+# 识别 x86_64 架构（兼容不同系统的返回值）
+if(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES &quot;x86_64|amd64&quot;)
+    set(ARCH &quot;x86_64&quot;)
+# 识别 arm64/aarch64 架构
+elseif(CMAKE_HOST_SYSTEM_PROCESSOR MATCHES &quot;aarch64|arm64&quot;)
+    set(ARCH &quot;aarch64&quot;)
+else()
+    message(FATAL_ERROR &quot;不支持的架构: ${CMAKE_HOST_SYSTEM_PROCESSOR}，请检查 lib 目录下是否有对应架构的库&quot;)
+endif()
+
+message(STATUS &quot;检测到系统架构: ${ARCH}&quot;)
+
+# 库文件路径：上层目录 -&gt; lib/zsl-1/架构目录
+set(LIB_PATH &quot;${CMAKE_SOURCE_DIR}/../../../lib/zsl-1/${ARCH}&quot;)
+message(STATUS &quot;将链接的库路径: ${LIB_PATH}&quot;)
+
+# 查找对应架构的库（库文件名为 libmc_sdk_zsl_1_${ARCH}.so）
+find_library(MC_SDK_LIB 
+    NAMES &quot;mc_sdk_zsl_1_${ARCH}&quot;  # 库名（不含前缀lib和后缀.so）
+    PATHS ${LIB_PATH}
+    NO_DEFAULT_PATH  # 只在指定路径查找，避免找到其他版本
+    REQUIRED
+)
+
+# 验证库是否找到
+if(NOT MC_SDK_LIB)
+    message(FATAL_ERROR &quot;在 ${LIB_PATH} 中未找到库文件 mc_sdk_zsl_1_${ARCH}.so，请检查库是否存在&quot;)
+else()
+    message(STATUS &quot;找到库文件: ${MC_SDK_LIB}&quot;)
+endif()
+
+# highlevel示例
+add_executable(highlevel_demo highlevel_demo.cpp)
+target_link_libraries(highlevel_demo ${MC_SDK_LIB})
+target_include_directories(highlevel_demo PRIVATE 
+    ${CMAKE_SOURCE_DIR}/../../../include  # 公共头文件
+    ${CMAKE_SOURCE_DIR}/../../../include/zsl-1  # ZSL-1专属头文件
+)
+
+# lowlevel示例
+add_executable(lowlevel_demo lowlevel_demo.cpp)
+target_link_libraries(lowlevel_demo ${MC_SDK_LIB})
+target_include_directories(lowlevel_demo PRIVATE 
+    ${CMAKE_SOURCE_DIR}/../../../include 
+    ${CMAKE_SOURCE_DIR}/../../../include/zsl-1
+)
+</code></pre>
+<h3 id="55-pythonmc_sdk">5.5 基于python使用mc_sdk</h3>
+<pre><code class="language-python">import os
+import platform
+import sys
+arch = platform.machine().replace('amd64', 'x86_64').replace('arm64', 'aarch64')
+lib_path = os.path.abspath(f'{os.path.dirname(__file__)}/../../../../lib/zsl-1/{arch}')
+sys.path.insert(0, lib_path)
+
+import mc_sdk_zsl_1_py
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../sdk_download/" class="btn btn-neutral float-left" title="Downloads"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../architecutre/" class="btn btn-neutral float-right" title="Architecture">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/zsibot/zsibot_sdk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../sdk_download/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../architecutre/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
