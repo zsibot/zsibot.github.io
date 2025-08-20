@@ -1,212 +1,57 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" /><link rel="canonical" href="https://zsibot.github.io/" />
-      <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>ZsiBot Docs</title>
-    <link rel="stylesheet" href="css/theme.css" />
-    <link rel="stylesheet" href="css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Home";
-        var mkdocs_page_input_path = "index.md";
-        var mkdocs_page_url = "/";
-      </script>
-    
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+    <!-- 将content的值改为3，代表延迟3秒后跳转 -->
+    <meta http-equiv="refresh" content="3; url=https://zsibot.github.io/zsibot_sdk/" />
+    <meta name="robots" content="noindex">
+    <style>
+        /* 可选：添加样式让提示更友好 */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .message {
+            font-size: 1.2rem;
+            color: #333;
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .countdown {
+            color: #0366d6; /* GitHub蓝 */
+            font-weight: bold;
+        }
+    </style>
 </head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> ZsiBot Docs
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#_1">🚀 快速开始</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1-sdk">1. 安装 SDK</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2">2. 导入并初始化</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#3">3. 调用机器人指令</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_2">📚 导航指南</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_3">💡 贡献与反馈</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="sdk_download/">Downloads</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="deploy/">Deploy</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="architecutre/">Architecture</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="api/">Interface</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="changelog/">Change Log</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="about/">About</a>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">ZsiBot Docs</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Home</li>
-    <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/zsibot/zsibot_sdk/edit/main/docs/index.md" class="icon icon-github"> Edit on GitHub</a>
-    </li>
-  </ul>
-    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
-        <a href="sdk_download/" class="btn btn-neutral float-right" title="Downloads">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
-    </div>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="zsibot-sdk">🎉 欢迎使用 ZsiBot SDK 文档</h1>
-<p>感谢您选择 <strong>ZsiBot</strong>！
-本套 SDK 致力于帮助您快速集成智能机器人功能，实现高效控制和无缝扩展。</p>
-<hr />
-<h2 id="_1">🚀 快速开始</h2>
-<h3 id="1-sdk">1. 安装 SDK</h3>
-<blockquote>
-<p><a href="sdk_download/">How to Download SDK</a></p>
-</blockquote>
-<h3 id="2">2. 导入并初始化</h3>
-<blockquote>
-<p><a href="deploy/">How to Deploy SDK</a></p>
-</blockquote>
-<h3 id="3">3. 调用机器人指令</h3>
-<blockquote>
-<p><a href="mc_sdk.md">Quick Start</a></p>
-</blockquote>
-<p>如果您已熟悉基础，可直接查看导航栏中的 <strong>API 接口</strong>、<strong>部署指南</strong>、<strong>架构设计</strong> 等章节获取更详细信息。</p>
-<hr />
-<h2 id="_2">📚 导航指南</h2>
-<ul>
-<li><strong>API 接口说明</strong> ：了解各类函数、参数及示例</li>
-<li><strong>架构设计</strong> ：项目整体架构</li>
-<li><strong>部署指南</strong> ：环境部署技巧</li>
-<li><strong>版本更新日志</strong> ：查看版本迭代内容及修处记录</li>
-</ul>
-<hr />
-<h2 id="_3">💡 贡献与反馈</h2>
-<p>我们欢迎社区的帮助与建议：</p>
-<ul>
-<li>📌 <strong>报告问题</strong> ：请在 GitHub 仓库打开 Issue</li>
-<li>✍️ <strong>贡献代码/文档</strong> ：可提交 Pull Request，参与完善</li>
-<li>💬 <strong>意见建议</strong> ：欢迎加入我们的 Slack/邮件列表</li>
-</ul>
-<hr />
-<p>再次感谢您的支持，祝您开发愉快！</p>
-<hr />
-<ul>
-<li>最后更新：2025年 07 月 18 日 *</li>
-</ul>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="sdk_download/" class="btn btn-neutral float-right" title="Downloads">Next <span class="icon icon-circle-arrow-right"></span></a>
+<body>
+    <div class="message">
+        <h1>当前文档地址已变更，后续请在新地址进行访问</h1>
+        <p>本页面将在 <span class="countdown">3</span> 秒后自动跳转到新地址...</p>
+        <p>如果没有自动跳转，请 <a href="https://zsibot.github.io/zsibot_sdk/">点击这里</a></p>
     </div>
 
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-        <span>
-          <a href="https://github.com/zsibot/zsibot_sdk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
-        </span>
-    
-    
-    
-      <span><a href="sdk_download/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
-</div>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = ".";</script>
-    <script src="js/theme_extra.js"></script>
-    <script src="js/theme.js"></script>
-      <script src="search/main.js"></script>
     <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
+        // 可选：添加倒计时动画，增强用户体验
+        let seconds = 3;
+        const countdownEl = document.querySelector('.countdown');
+        
+        setInterval(() => {
+            seconds--;
+            countdownEl.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval();
+            }
+        }, 1000);
     </script>
-
 </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2025-08-14 08:18:09.720494+00:00
--->
+    
